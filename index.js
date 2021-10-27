@@ -43,6 +43,8 @@ const requestLogger = (request, response, next) => {
 }
 app.use(requestLogger) // HTTP request 日志
 
+app.use(express.static('build')) // 后端部署静态文件
+
 app.get('/', (request, response) => {
   response.send('<h1>Hello World!</h1>')
 })
