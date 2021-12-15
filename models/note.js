@@ -12,9 +12,17 @@ mongoose.connect(url).then(result => {
 
 // define schema
 const noteSchema = new mongoose.Schema({
-  content: String,
-  date: Date,
-  important: Boolean,
+  // 使用 Mongoose 的 validation
+  content: {
+    type: String,
+    minlength: 5,
+    required: true
+  },
+  date: {
+    type: Date,
+    required: true
+  },
+  important: Boolean
 })
 
 // modify schema toJson method
